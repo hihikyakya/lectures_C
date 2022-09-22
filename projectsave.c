@@ -82,8 +82,10 @@ int main() {
 
 	//math library를 사용해 원뿔의 부피 구하기
 	float r, h;
-	r = 10;
-	h = 3.1f;
+	printf("반지름 입력:");
+	scanf_s("%f\n", &r);
+	printf("높이 입력:");
+	scanf_s("%f\n", &h);
 	printf("pi*%g*%g*%g/3=%f",r,r,h,Vwithmathh(r,h));//함수값 최종 출력
 	
 	return 0;
