@@ -3,6 +3,7 @@
 #include <math.h>
 #define _CRT_SECURE_NO_WARNINGS
 #pragma warning(disable:4996)
+//함수의 정의
 void V2(int num);
 double fouranglehornV(double a, double b, double h);
 float V(float r, float h);
@@ -82,11 +83,12 @@ int main() {
 	//math library를 사용해 원뿔의 부피 구하기
 	float r, h;
 	r = 10;
-	h = 3.1;
-	printf("pi*%g*%g*%g/3=%f",r,r,h,Vwithmathh(r,h));
+	h = 3.1f;
+	printf("pi*%g*%g*%g/3=%f",r,r,h,Vwithmathh(r,h));//함수값 최종 출력
 	
 	return 0;
 }
+//리턴할 함수값 만드는 곳
 float Vwithmathh(float r,float h) {
 	r = r * r;
 	float pi = acos(-1);
