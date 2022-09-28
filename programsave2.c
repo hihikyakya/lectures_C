@@ -33,7 +33,11 @@ int main() {
 	//1.47이란 숫자를 주고 반올림하기
 	double ROUND,num=1.6;
 	ROUND=round(num);
-	printf("%f",ROUND);
+	//printf("%f",ROUND);
+	//임의의 소문자를 주면 대문자를 주는 시스템만들기 
+    char s1[10] = "hello";  //나중에 하 기 
+
+    printf("\%s\n", s1); 
 	return 0;
 }
 double round(double a){
