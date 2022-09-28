@@ -88,6 +88,10 @@ int main() {
 	scanf_s("%f\n", &h);
 	printf("pi*%g*%g*%g/3=%f",r,r,h,Vwithmathh(r,h));//함수값 최종 출력
 	
+	unsigned int speed;
+	speed = -10;
+	printf("%d", speed);
+
 	return 0;
 }
 //리턴할 함수값 만드는 곳
