@@ -6,10 +6,14 @@
 #pragma warning(disable:4996)
 
 double round(double);
+char* CAP(char[]);
+char _CAP(char);
+int _bin(int);
+int bin(int);
 int main() {
 	unsigned int speed; //?
 	speed = -10;
-	//printf("%d", speed==10);
+	printf("%d", speed<0);//분명 -10인데 0보다 크다는 판정이 뜸. 
 	
 	const int int1=10;
 	
@@ -30,14 +34,22 @@ int main() {
 	printf("f0 = %f, f1 = %f, f2 = %f",f0,f1,f2);
 	*/
 	
+	/*
 	//1.47이란 숫자를 주고 반올림하기
 	double ROUND,num=1.6;
 	ROUND=round(num);
-	//printf("%f",ROUND);
+	//printf("%f",ROUND);*/
+	
+	
+	/*
 	//임의의 소문자를 주면 대문자를 주는 시스템만들기 
-    char s1[10] = "hello";  //나중에 하 기 
-
-    printf("\%s\n", s1); 
+	char s1='r';
+	char string[10]="hello";
+    printf("%c\n", _CAP(s1)); r->R
+    printf("%s\n",CAP(string));//hello->HELLO*/
+    
+	//binary값 출력하기
+    
 	return 0;
 }
 double round(double a){
@@ -48,4 +60,47 @@ double round(double a){
 	else{
 		return floor(a);
 	}
+}
+
+char _CAP(char c){
+	int V=(int)'Z'-(int)'z';
+	int _c=(int)c;
+	int _a=(int)'a';
+	int _z=(int)'z';
+	if(_c>=_a && _c<=_z){
+		int CAPITAL=(int)c+V;
+		return (char)CAPITAL;
+	}
+	else{
+		return c;
+	}
+}
+
+char* CAP(char c[]){
+	for(int i=0;c[i]!='\0';i++){
+		c[i]=_CAP(c[i]);
+	}
+	return c;
+}
+
+int _bin(int n){
+	if(n%2!=0){
+		int re=n%2;
+		return (int)(n-re)/2;
+	}
+	else{
+		return n/2;
+	}
+}
+
+int bin(int n){
+	int ints[]=int[]{};
+	for(int i=0; ;i++)
+		if((_bin(n)==n/2)){
+			ints[i]=1;
+		}
+		else{
+			ints[i]=0;
+		}
+		n=(n-n%2)/2;
 }
