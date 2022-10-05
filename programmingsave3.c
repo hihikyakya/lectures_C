@@ -107,19 +107,26 @@ int main() {
 	}
 	*/
 	//임의의 10진수를 넘겨받으면 해당되는 2진수를 출력하는 함수
-	for (int i = 0; bin(10) == "/0"; i++) {
-		printf("%d", bin(10)[i]);
+	unsigned int num;
+	printf("정수를 입력해주세요:");
+	scanf_s("%d", &num);
+
+	printf("2진수 변환 : ");
+	//이진수 출력
+	for (int i = 7; i >= 0; --i) { //8자리 숫자까지 나타냄
+		int result = num >> i & 1;
+		printf("%d", result);
 	}
 
 	//최대공약수를 구하는 함수 int gcd(int m, int n)를 만들고 이를 시험하라.. 277쪽 참고
 	
-	printf("%d", gcd(8, 16));
+	printf("\n%d\n", gcd(8, 16));
 	
 	
 	
 	//비트 연산자를 이용해 대, 소문자 변환하는 방법을 생각해보라.
 	char a[] = "abcdef";
-	printf("%s", CAP(a));
+	printf("%s\n", CAP(a));
 
 	return 0;
 }
