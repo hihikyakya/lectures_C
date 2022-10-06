@@ -4,19 +4,20 @@
 #define _CRT_SECURE_NO_WARNINGS
 #pragma warning(disable:4996)
 
-int _bin(int);
 void replace(int*, int*);
 void _replace(int, int);
-int* bin(int);
 int gcd(int, int);
 char _CAP(char c);
 char* CAP(char c[]);
+int factorial(int);
+void hanoi(int);
+int* _h(int *n,int *m);
+void printarr(int* a);
 int main() {
 	/*
 	unsigned int speed; //?
 	speed = -10;
 	printf("%d", speed < 0);//분명 -10인데 0보다 크다는 판정이 뜸.
-
 	const int int1 = 10;*/
 
 	//int1 = 20 -> error;
@@ -28,7 +29,6 @@ int main() {
 	i=34567890;
 	f=34567890;
 	d=34567890;
-
 	printf("i = %d, f = %f, d = %f\n",i,f,d);
 	f0 = 34567889;
 	f1 = 34567891;
@@ -70,7 +70,6 @@ int main() {
 	//변수 옵션 종류
 	auto char a[] = "sfgfgfs";//자동 변수, 함수 사용후 데이터 삭제됨(최적화)
 	printf("%s", a);
-
 	static int b = 10;//?
 	b = 20;
 	printf("%d", b);
@@ -89,7 +88,6 @@ int main() {
 		scanf_s("%s", a);
 		printf("\n패스워드 입력: ");
 		scanf_s("%s", b);
-
 		if (a == id && b == password){
 			printf("로그인 성공!");
 			break;
@@ -109,7 +107,7 @@ int main() {
 	//임의의 10진수를 넘겨받으면 해당되는 2진수를 출력하는 함수
 	unsigned int num;
 	printf("정수를 입력해주세요:");
-	scanf_s("%d", &num);
+	scanf("%d", &num);
 
 	printf("2진수 변환 : ");
 	//이진수 출력
@@ -123,23 +121,12 @@ int main() {
 	printf("\n%d\n", gcd(8, 16));
 	
 	
-	
 	//비트 연산자를 이용해 대, 소문자 변환하는 방법을 생각해보라.
 	char a[] = "abcdef";
 	printf("%s\n", CAP(a));
-
 	return 0;
 }
 
-int _bin(int n) {
-	if (n % 2 != 0) {
-		int re = n % 2;
-		return (int)(n - re) / 2;
-	}
-	else {
-		return n / 2;
-	}
-}
 void replace(int *n1, int *n2) {
 	int temp = *n1;
 	*n1 = *n2;
@@ -171,23 +158,6 @@ char* CAP(char c[]) {
 	}
 	return c;
 }
-int* bin(int n) {
-	int bin[100];
-	for (int i = 0; n==1; i++) {
-		static int r;
-		r = n % 2;
-		if (r==0) {
-			bin[i]= 1;
-			n = (n-r)/2;
-		}
-		else {
-			bin[i]= 0;
-			n = (n - r) / 2;
-		}
-
-	}
-	return bin;
-}
 
 int gcd(int m, int n) {
 	static int a=1;
@@ -199,4 +169,60 @@ int gcd(int m, int n) {
 		}
 	}
 	return a;
+}
+int factorial(int n){
+	if(n<=1){
+		return 1;
+	}
+	else{
+		return n*factorial(n-1);
+	}
+}
+
+void hanoi(int n){
+	int A[n];
+	for(int i=0;i<n;i++){
+		A[i]=i;
+	}
+	int B[n], C[n];
+	B=_h(A,B);
+	printf("A=");
+	printarr(A);
+	printf("B=");
+	printarr(B);
+	printf("C=");
+	printarr(C);
+	C=_h(A,C);
+	printf("A=");
+	printarr(A);
+	printf("B=");
+	printarr(B);
+	printf("C=");
+	printarr(C);
+	C=_h(B,C);
+	printf("A=");
+	printarr(A);
+	printf("B=");
+	printarr(B);
+	printf("C=");
+	printarr(C);
+}
+int* _h(int n[],m[]){
+	if(n[0]>=m[0]){
+		return m;
+	}
+	else{
+		int a={n[0]};
+		for(int i=1;i<=sizeof(m);i++ ){
+			a[i]=&m[i];
+		}
+		
+		return _h(n,a);
+	}
+}
+
+void printarr(int a[]){
+	for(int i=0;i<sizeof(a);i++){
+		printf("%d\n",a[i]);
+	}
 }
