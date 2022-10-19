@@ -43,6 +43,29 @@ int main() {
 			printf("%d, ", D2[i][j]);
 		}
 	}
+		/*
+	//포인터 출력
+	int i = 10;
+	char c = 69;
+	float f = 12.3;
+	int* p = &i;
+	printf("i의 주소: %u\n", *p); //주소에 저장된 변수를 출력
+	printf("i의 주소: %u\n", *&i);
+	printf("i의 주소: %u\n", &i); //p와 &i의 주소값 출력은 같음.
+	printf("i의 주소: %u\n", p);
+	printf("c의 주소: %u\n", &c);
+	printf("f의 주소: %u\n", &f);*/
+	
+	//메모리 공간 크기 구하기
+	printf("int의 메모리 크기: %d\n", sizeof(int));
+	printf("short의 메모리 크기: %d\n", sizeof(short));
+	printf("long의 메모리 크기: %d\n", sizeof(long));
+	printf("float의 메모리 크기: %d\n", sizeof(float));
+	printf("double의 메모리 크기: %d\n", sizeof(double));
+	printf("char의 메모리 크기: %d\n", sizeof(char));
+	
+	
+	
 	return 0;
 }
 int sum(int num, ...) {
