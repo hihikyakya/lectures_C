@@ -37,7 +37,7 @@ int main(){
 		printf("학번=%d,이름=%s,평점=%lf\n",s.number,s.name,s.gpa);
 	}
 	fclose(fp);*/
-	
+	/*
 	//파일내용을 다른 파일로 옮 
 	FILE *fp1,*fp2;
 	char file1[100],file2[100];
@@ -60,5 +60,15 @@ int main(){
 	}
 	fclose(fp1);
 	fclose(fp2);
+	*/
+	
+	
+	//len만큼의 파일을 생성하는 프로그램 만들기. 
+	int len=10;
+	FILE **fp=(FILE**)malloc(sizeof(FILE)*len);
+	for(int i=0;i<len;i++){
+		char* string=gets();
+		fwrite()
+	}
 	return 0;
 }
